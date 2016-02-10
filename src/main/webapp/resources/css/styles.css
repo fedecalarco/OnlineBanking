@@ -1,0 +1,100 @@
+a:link{color:black}
+a:visited{color:black}
+a:hover{color:red}
+a:active{color:red}
+a:focus{color:red}
+
+
+
+html{
+    background:ghostwhite;
+
+}
+
+
+
+
+header{
+
+}
+
+
+
+body{
+    font-family: sans-serif;
+    background-color: ghostwhite;
+    color: black;
+
+
+
+}
+footer{}
+
+
+#titulo{
+    background-color: tomato;
+    text-align: center;
+    color: white;
+
+    border: 1px solid #848484;
+    -webkit-border-radius:4px; 
+}
+
+#login{
+    background-color:#393939;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+}
+
+#registro{
+    background-color:#393939;
+    padding: 20px;
+    margin: 0px;
+    text-align: center;
+    color:black;
+}
+
+    
+
+
+
+
+#imagen{    
+    padding: 0px;
+
+}
+
+#barraSuperior{
+    background-color:#848484;
+    text-align: right;
+}
+#barraSuperior2{
+    background-color:#848484;
+    text-align: left;
+}
+#menuIzquierda{
+
+    background-color: #848484;
+    margin-top:2px;
+}
+#menuDerecha{
+
+    background-color: #848484;
+    margin-top:2px;
+}
+
+#tabla{
+    background-color: white;
+    margin-top:2px;
+    padding:0px;
+    border: 1px solid #848484;
+    -webkit-border-radius:4px; 
+   text-align: center;
+
+
+}
+ 
+th{
+    text-align: center;
+}
