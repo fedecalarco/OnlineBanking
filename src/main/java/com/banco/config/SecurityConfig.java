@@ -16,15 +16,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  *
  * @author fedec
  */
-@Configuration
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Configuracion de usuarios
      */
+    
     @Autowired
-    @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("fede").password("123123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("123123").roles("ADMIN");

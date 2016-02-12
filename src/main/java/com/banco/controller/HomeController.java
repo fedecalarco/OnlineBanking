@@ -18,20 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 
 public class HomeController {
-    @RequestMapping(value="/index")
+    @RequestMapping("index")
     public ModelAndView index() {
         ModelAndView MV = new ModelAndView("index");
         return MV;
     }
-
     
- // Crear
-    @RequestMapping(value = "/User/crear", method = RequestMethod.GET)
-    public String crear(Model m) {
 
-       // Users user = new Users();
 
-        //  m.addAttribute("user",user);
-        return "crear";
-    }
 }
