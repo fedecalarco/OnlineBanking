@@ -3,36 +3,34 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.banco.repository;
+package com.banco.DAO;
 
 
-import com.banco.model.Users;
+import com.banco.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.criterion.CriteriaSpecification;
-import org.hibernate.criterion.Order;
 
 /**
  * CRUD
  * @author fedec
  */
 
-public class UsersDAO {
+public class UsersDAO2 {
 
     //CURD 
-    public List<Users> getAll() {
+    public List<User> getAll() {
 
-        List<Users> lst = new ArrayList<Users>();
+        List<User> lst = new ArrayList<User>();
 
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
         try {
             s.beginTransaction();
             // DISTINCT_ROOT_ENTITY para que no repita valores id por las cascadas
-            lst = s.createCriteria(Users.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+            lst = s.createCriteria(User.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
             s.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -43,7 +41,7 @@ public class UsersDAO {
     }
 
     // Create 
-    public void create(Users user) {
+    public void create(User user) {
 
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -58,7 +56,7 @@ public class UsersDAO {
     }
 
     // Remove
-    public void remove(Users user) {
+    public void remove(User user) {
 
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -73,7 +71,7 @@ public class UsersDAO {
     }
 
     // Update
-    public void update(Users user) {
+    public void update(User user) {
 
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -88,7 +86,7 @@ public class UsersDAO {
     }
 
     // edit
-    public void edit(Users user) {
+    public void edit(User user) {
 
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
 
@@ -102,12 +100,12 @@ public class UsersDAO {
         }
     }
 
-    public Users getUser(long id) {
+    public User getUser(long id) {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-        Users user = new Users();
+        User user = new User();
         try {
             s.beginTransaction();
-            user = (Users) s.get(Users.class, id);
+            user = (User) s.get(User.class, id);
             s.getTransaction().commit();
 
         } catch (Exception e) {
@@ -117,15 +115,15 @@ public class UsersDAO {
         return user;
     }
 
-    public Users getUserByUsername(String name) {
+    public User getUserByUsername(String name) {
         Session s = HibernateUtil.getSessionFactory().getCurrentSession();
-        Users user = null;
+        User user = null;
 
         try {
             s.beginTransaction();
 
             Query query = s.createQuery("FROM entity.Users WHERE username='" + name + "'");
-            user = (Users) query.uniqueResult();
+            user = (User) query.uniqueResult();
             s.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
@@ -138,7 +136,7 @@ public class UsersDAO {
     //Verificar 
     public boolean verificar(String userId, String password) {
 
-        Users user = getUserByUsername(userId);
+        User user = getUserByUsername(userId);
 
         if (user != null && user.getUsername().equals(userId) && user.getPassword().equals(password)) {
             return true;
@@ -149,7 +147,7 @@ public class UsersDAO {
 
     //Verificar 
     public boolean verificarUsuario(String userId) {
-        Users user = getUserByUsername(userId);
+        User user = getUserByUsername(userId);
 
         if (user != null) {
             return true;

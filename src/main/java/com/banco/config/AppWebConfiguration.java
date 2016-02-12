@@ -10,6 +10,8 @@ package com.banco.config;
  * @author fedec
  */
 import com.banco.controller.HomeController;
+import com.banco.controller.LoginController;
+import com.banco.controller.UserController;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackageClasses={HomeController.class})
+@ComponentScan(basePackageClasses={HomeController.class, LoginController.class,UserController.class})
 public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
     @Bean

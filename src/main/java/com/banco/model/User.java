@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
 @Entity
-public class Users implements java.io.Serializable {
+public class User implements java.io.Serializable {
 
     @Id
     @GeneratedValue(strategy = IDENTITY)
@@ -22,10 +22,10 @@ public class Users implements java.io.Serializable {
     private Cuenta cuenta;
     
     
-    public Users() {
+    public User() {
     }
 
-    public Users(long userId, String email, String password, Persona persona, String username) {
+    public User(long userId, String email, String password, Persona persona, String username) {
         this.userId = userId;
         this.email = email;
         this.password = password;

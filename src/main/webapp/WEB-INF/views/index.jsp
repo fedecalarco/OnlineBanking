@@ -26,7 +26,7 @@
                     <div class="col-md-3" id="login">
                         <h3 style="color: whitesmoke">Ingrese sus datos para operar</h3><br>
                         <p style="color:red">${ok}</p>
-                        <f:form action="Login/verificar.html" modelAttribute="Usuario">
+                        <f:form action="login/verificar.html" modelAttribute="Usuario">
                             <label style="color: whitesmoke" for="usernameid">Usuario: </label> <br/>
                             <input type="text" name="username" id="usernameid" value=""/><br/>
                             <label  style="color: whitesmoke" for="passwordid">Clave: </label><br/>
@@ -34,7 +34,7 @@
                             <br>
                             <br>
                             <input type="submit" class="btn btn-success btn-sm" value="Ingresar"/>
-                            <a href="<c:url value="/User/crear" />" class="btn btn-warning btn-sm" role="button">Crear cuenta</a> 
+                            <a href="<c:url value="/user/registrar.html" />" class="btn btn-warning btn-sm" role="button">Crear cuenta</a> 
                         </f:form>
                         <br>
                         <br><br>
