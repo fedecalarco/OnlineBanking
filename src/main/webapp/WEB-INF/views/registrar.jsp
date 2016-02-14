@@ -53,7 +53,7 @@
                             <input type="text" name="Persona.telefono" id="telefonoid" value=""/><br/><br/>
 
                             <br/>
-                            <a href="index.html" class="btn btn-warning btn-lg" role="button">Cancelar</a> 
+                            <a href="${pageContext.request.contextPath}/" class="btn btn-warning btn-lg" role="button">Cancelar</a> 
                             <input type="submit" class="btn btn-success btn-lg" value="Registrar"/>
 
                         </f:form>

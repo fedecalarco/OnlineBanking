@@ -1,5 +1,6 @@
 package com.banco.config;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 /**
@@ -7,11 +8,12 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
  *
  * @author fedec
  */
+@Order(value=1)
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{};
+        return new Class[]{RootConfig.class};
     }
 
     @Override
