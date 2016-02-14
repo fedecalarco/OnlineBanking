@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author Training.AAFLP.14
  */
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="/home")
 public class LoginController {
     
-    @RequestMapping(value="/verificar", method = RequestMethod.POST)
+    @RequestMapping(value="/ok")
     public String registrar (){
         return "home";
     }

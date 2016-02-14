@@ -16,6 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  *
  * @author fedec
  */
+@Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
@@ -24,7 +25,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
      */
     
     @Autowired
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+    protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("fede").password("123123").roles("USER");
         auth.inMemoryAuthentication().withUser("admin").password("123123").roles("ADMIN");
     }
@@ -33,10 +34,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
 
         http.authorizeRequests()
-                .antMatchers("/").permitAll() 
-                .antMatchers("/login/**").access("hasRole('ADMIN')")
-                .antMatchers("/user/**").access("hasRole('ADMIN')")
-                .and().formLogin()
-                .and().exceptionHandling().accessDeniedPage("/");
+                .antMatchers("/").access("hasRole('USER')")
+                .antMatchers("/home/**").access("hasRole('USER')")
+                .antMatchers("/user/**").permitAll()
+                .antMatchers("/resources/**").permitAll()
+                .and().formLogin().loginPage("/login").permitAll()
+                .and().logout().permitAll();
     }
 }

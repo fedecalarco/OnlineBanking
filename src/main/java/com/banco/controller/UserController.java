@@ -6,7 +6,7 @@
 package com.banco.controller;
 
 import com.banco.model.User;
-import com.banco.service.UserService;
+import com.banco.service.UserServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -30,7 +30,7 @@ public class UserController {
     @RequestMapping(value="/registrar",method = RequestMethod.POST)
     public String registrar(@ModelAttribute(value = "Usuario") User user, Model m){
         // Verificar si username ^ email no existan
-        UserService userService = new UserService();
+        UserServiceImpl userService = new UserServiceImpl();
         userService.create(user);
         return "index";
     }

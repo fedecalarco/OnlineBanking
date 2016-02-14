@@ -5,26 +5,14 @@
  */
 package com.banco.service;
 
-import com.banco.DAO.UserDAO;
 import com.banco.model.User;
-import javax.annotation.Resource;
-import org.springframework.stereotype.Service;
 
 /**
  *
  * @author fedec
  */
-@Service
-public class UserService {
+public interface UserService {
 
-    @Resource
-    private UserDAO userDao;
+    void create(User user);
     
-    MovimientosService mov = new MovimientosService();
-    
-    public void create(User user) {
-        user.getCuenta().agregarMovimiento(mov.setMovimiento("Registro"));
-        userDao.create(user);
-    }
-
 }
