@@ -1,7 +1,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 
 <html>
@@ -47,7 +48,7 @@
                     <div class="col-md-2" id="menuDerecha">
                         <br><br><br><br><br>
                         Signed in as <a href="#" class="navbar-link">${pageContext.request.remoteUser}</a>
-                        <form class="navbar-form pull-right" action="logout" method="post">
+                        <form class="navbar-form pull-right" action="logout" method="POST">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <input type="submit"
                                                                                                                 value="Log out" />
                         </form>

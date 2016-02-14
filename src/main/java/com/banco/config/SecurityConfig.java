@@ -23,7 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * Configuracion de usuarios
      */
-    
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication().withUser("fede").password("123123").roles("USER");
@@ -33,14 +32,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
 
-        http.authorizeRequests()
+        http.authorizeRequests()              
                 .antMatchers("/").access("hasRole('USER')")
-                .antMatchers("/home/**").access("hasRole('USER')")
-                .antMatchers("/user/registrar").permitAll()
-                .antMatchers("/user/**").access("hasRole('USER')")
+                .antMatchers("/user/**").permitAll()
                 .antMatchers("/HB/**").access("hasRole('USER')")
                 .antMatchers("/resources/**").permitAll()
                 .and().formLogin().loginPage("/login").permitAll()
                 .and().logout().permitAll();
     }
+
 }

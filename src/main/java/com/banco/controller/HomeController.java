@@ -16,17 +16,23 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
-
-    @RequestMapping("/")
-    public ModelAndView index(Model m) {
+    @RequestMapping(value = "/")
+        public ModelAndView index() {
+            
         return new ModelAndView("home");
-        
+
 //       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 //       String name = auth.getName(); //get logged in username
 //
 //       System.out.println(name);
 ////        m.addAttribute("session_user", user);
 //        return "home";
+    }
+    
+     @RequestMapping(value = "/home")
+    public String goHome(Model m) {
+
+        return "home";
     }
 
 // pageContext.request.remoteUser

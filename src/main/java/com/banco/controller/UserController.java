@@ -27,11 +27,11 @@ public class UserController {
     UserService userService;
     
     @RequestMapping(value="/registrar", method = RequestMethod.GET)
-    public String registrar (){
+    public String registrar (Model model){
         return "registrar";
     }
     @RequestMapping(value="/registrar",method = RequestMethod.POST)
-    public String registrar(@ModelAttribute(value = "Usuario") User user, Model m){
+    public String registrar(@ModelAttribute(value = "Usuario") User user, Model model){
         // Verificar si username ^ email no existan
 
         userService.create(user);

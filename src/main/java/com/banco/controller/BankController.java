@@ -19,8 +19,8 @@ import org.springframework.web.servlet.ModelAndView;
 public class BankController {
     
     @RequestMapping(value="/index")
-    public ModelAndView registrar (Model m){
-        return new ModelAndView("home");
+    public String registrar (Model model){
+        return "home";
     }
     
 }
