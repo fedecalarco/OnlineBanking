@@ -5,14 +5,10 @@
  */
 package com.banco.controller;
 
-import com.banco.model.User;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -22,14 +18,15 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 public class HomeController {
 
     @RequestMapping("/")
-    public String index(Model m) {
-
-       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-       String name = auth.getName(); //get logged in username
-
-       System.out.println(name);
-//        m.addAttribute("session_user", user);
-        return "home";
+    public ModelAndView index(Model m) {
+        return new ModelAndView("home");
+        
+//       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//       String name = auth.getName(); //get logged in username
+//
+//       System.out.println(name);
+////        m.addAttribute("session_user", user);
+//        return "home";
     }
 
 // pageContext.request.remoteUser

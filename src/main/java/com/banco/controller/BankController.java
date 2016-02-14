@@ -6,20 +6,21 @@
 package com.banco.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
  * @author Training.AAFLP.14
  */
 @Controller
-@RequestMapping(value="/home")
-public class LoginController {
+@RequestMapping(value="/HB")
+public class BankController {
     
-    @RequestMapping(value="/ok")
-    public String registrar (){
-        return "home";
+    @RequestMapping(value="/index")
+    public ModelAndView registrar (Model m){
+        return new ModelAndView("home");
     }
     
 }

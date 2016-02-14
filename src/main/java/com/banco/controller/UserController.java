@@ -6,13 +6,13 @@
 package com.banco.controller;
 
 import com.banco.model.User;
-import com.banco.service.UserServiceImpl;
+import com.banco.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -23,6 +23,9 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping(value="/user")
 public class UserController {
     
+    @Autowired
+    UserService userService;
+    
     @RequestMapping(value="/registrar", method = RequestMethod.GET)
     public String registrar (){
         return "registrar";
@@ -30,9 +33,9 @@ public class UserController {
     @RequestMapping(value="/registrar",method = RequestMethod.POST)
     public String registrar(@ModelAttribute(value = "Usuario") User user, Model m){
         // Verificar si username ^ email no existan
-        UserServiceImpl userService = new UserServiceImpl();
+
         userService.create(user);
-        return "index";
+        return "redirect:/HB/index";
     }
     
 }

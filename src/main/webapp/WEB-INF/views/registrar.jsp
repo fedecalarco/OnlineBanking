@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-md-12" id="registro">
 
-                        <f:form action="../User/add.html" modelAttribute="Usuario">
+                        <f:form action="${pageContext.request.contextPath}/user/registrar" modelAttribute="Usuario">
 
                             <label for="usernameid">Username: </label><br/>
                             <input type="text" name="username" id="usernameid" value=""/><br/><br/>
