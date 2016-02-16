@@ -48,10 +48,7 @@
                     <div class="col-md-2" id="menuDerecha">
                         <br><br><br><br><br>
                         Signed in as <a href="#" class="navbar-link">${pageContext.request.remoteUser}</a>
-                        <form class="navbar-form pull-right" action="logout" method="POST">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" /> <input type="submit"
-                                                                                                                value="Log out" />
-                        </form>
+                        <a href="<c:url value="/logout" />">Logout</a>
                     </div>
                 </div>
             </div>

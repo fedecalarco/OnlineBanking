@@ -5,9 +5,15 @@
  */
 package com.banco.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -16,23 +22,25 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class HomeController {
+
     @RequestMapping(value = "/")
-        public ModelAndView index() {
-            
-        return new ModelAndView("home");
-
-//       Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//       String name = auth.getName(); //get logged in username
-//
-//       System.out.println(name);
-////        m.addAttribute("session_user", user);
-//        return "home";
+    public ModelAndView index() {
+        return new ModelAndView("index");
     }
-    
-     @RequestMapping(value = "/home")
-    public String goHome(Model m) {
 
-        return "home";
+    @RequestMapping(value = "/home")
+    public ModelAndView goHome(Model m) {
+
+        return new ModelAndView("home");
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    public String logoutPage(HttpServletRequest request, HttpServletResponse response) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        if (auth != null) {
+            new SecurityContextLogoutHandler().logout(request, response, auth);
+        }
+        return "redirect:/login?logout";//You can redirect wherever you want, but generally it's a good practice to show login screen again.
     }
 
 // pageContext.request.remoteUser
