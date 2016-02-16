@@ -45,4 +45,13 @@ public class UserDAOImpl implements UserDAO {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
+    @Override
+    public User getUserByUsername(String username) {
+
+
+            return (User) getCurrentSession().createQuery("FROM com.banco.model.User WHERE username='" + username + "'").uniqueResult();
+
+
+    }
+
 }

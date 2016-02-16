@@ -14,5 +14,6 @@ import com.banco.model.User;
 public interface UserService {
 
     void create(User user);
+    User getUserByUsername(String username);
     
 }

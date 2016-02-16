@@ -21,14 +21,19 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private UserDAO userDao;
-    
-   // @Autowired
- //   private MovimientosServiceImpl mov = new MovimientosService();
-    
+
+    // @Autowired
+    //   private MovimientosServiceImpl mov = new MovimientosService();
     @Override
     public void create(User user) {
-      //  user.getCuenta().agregarMovimiento(mov.setMovimiento("Registro"));
+        //  user.getCuenta().agregarMovimiento(mov.setMovimiento("Registro"));
         userDao.create(user);
+    }
+
+    @Override
+    public User getUserByUsername(String username) {
+
+        return userDao.getUserByUsername(username);
     }
 
 }

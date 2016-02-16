@@ -27,7 +27,7 @@
                     <div class="col-md-8" id="tabla">
                         <h1>Resumen de cuenta</h1>
                         <h4>Titular: ${session_user.getPersona().getNombre()} ${session_user.getPersona().getApellido()}</h4>
-                        <h4>Nº de cuenta: 648418/${session_user.getCuenta().getId()}</h4>
+                        <h4>Nº de cuenta: 648418/${session_user.getUserId()}</h4>
                         <h4>DNI: ${session_user.getPersona().getDni()}</h4>
                         <br>
                         <h4>Saldo: $${session_user.getCuenta().getSaldo()}</h4>
