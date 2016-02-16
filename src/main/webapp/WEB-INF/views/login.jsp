@@ -1,6 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ include file="/resources/maquetacion/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,11 +24,11 @@
                     </div>
                     <div class="col-md-3" id="login">
                         <h3 style="color: whitesmoke">Ingrese sus datos para operar</h3><br>
-                        
+
                         <c:if test="${param.error != null}">
                             <p style="color:red">Invalid username or password.</p>
                         </c:if>
-                            
+
                         <c:if test="${param.logout != null}">
                             <p style="color:red">You have been logged out.</p>
                         </c:if>

@@ -38,7 +38,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/HB/**").access("hasRole('USER')")
                 //                .antMatchers("/resources/**").permitAll()
                 //        .anyRequest().authenticated()
-                .and().formLogin().loginPage("/login").permitAll()
+                .and().formLogin()
+                    .loginPage("/login").permitAll()
+                    .defaultSuccessUrl("/HB/index")
                 .and().logout().permitAll();
     }
 
