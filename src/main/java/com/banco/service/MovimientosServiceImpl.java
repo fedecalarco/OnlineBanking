@@ -14,12 +14,15 @@ import java.util.Date;
  */
 public class MovimientosServiceImpl implements MovimientosService {
 
-    Movimientos movs = new Movimientos();
-    Date dia = new Date();
+    
+    
 
     @Override
     public Movimientos setMovimiento(String operacion) {
-
+        
+        Movimientos movs = new Movimientos();
+        Date dia = new Date();
+        
         switch (operacion) {
             case "Registro":
                 movs.setAccion("Creacion de cuenta");

@@ -47,11 +47,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public User getUserByUsername(String username) {
-
-
             return (User) getCurrentSession().createQuery("FROM com.banco.model.User WHERE username='" + username + "'").uniqueResult();
-
-
     }
 
 }

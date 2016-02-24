@@ -13,29 +13,32 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
  * @author Training.AAFLP.14
  */
-
 @Controller
-@RequestMapping(value="/user")
+@RequestMapping(value = "/user")
 public class UserController {
-    
+
     @Autowired
     UserService userService;
-    
-    @RequestMapping(value="/registrar", method = RequestMethod.GET)
-    public String registrar (Model model){
-        return "registrar";
-    }
-    @RequestMapping(value="/registrar",method = RequestMethod.POST)
-    public String registrar(@ModelAttribute(value = "Usuario") User user, Model model){
-        // Verificar si username ^ email no existan
 
+    @RequestMapping(value = "/registrar", method = RequestMethod.GET)
+    public ModelAndView registrar(Model model) {
+        ModelAndView modelAndView = new ModelAndView("registrar");
+        modelAndView.addObject("Usuario", new User());
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/registrar", method = RequestMethod.POST)
+    public String registrar(@ModelAttribute(value = "Usuario") User user) {
+        // Verificar si username ^ email no existan
+        
         userService.create(user);
         return "redirect:/HB/index";
     }
-    
+
 }

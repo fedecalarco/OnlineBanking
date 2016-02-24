@@ -47,8 +47,6 @@
                     </div>
                     <div class="col-md-2" id="menuDerecha">
                         <br><br><br><br><br>
-                        Signed in as <a href="#" class="navbar-link">${pageContext.request.remoteUser}</a>
-                        <a href="<c:url value="/logout" />">Logout</a>
                     </div>
                 </div>
             </div>
