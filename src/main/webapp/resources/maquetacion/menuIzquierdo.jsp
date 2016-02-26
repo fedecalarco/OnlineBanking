@@ -3,8 +3,9 @@
     <ul>
         <li><a href="<c:url value="/HB/index"/>">Home</a></li>
         <li><a href="<c:url value="/HB/transferencias"/>">Transferencias</a></li>
+        <li><a href="<c:url value="/HB/test"/>">Menu</a></li>
         <li><a href="<c:url value="/HB/Admin/Usuarios"/>">Administracion</a></li>
-        <li><a href="#">Menu</a></li>
+
     </ul>
 
 </div>

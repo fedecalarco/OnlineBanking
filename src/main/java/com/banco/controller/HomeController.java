@@ -28,11 +28,6 @@ public class HomeController {
         return new ModelAndView("redirect:/HB/index");
     }
 
-    @RequestMapping(value = "/home")
-    public ModelAndView goHome(Model m) {
-
-        return new ModelAndView("home");
-    }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logoutPage(HttpServletRequest request, HttpServletResponse response) {

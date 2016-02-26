@@ -38,7 +38,6 @@ public class BankController {
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String name = auth.getName(); //get logged in username
-        System.out.println(name);
         User user = userService.getUserByUsername(name);
 
         model.addAttribute("session_user", user);
@@ -59,12 +58,17 @@ public class BankController {
     ) {
         Cuenta cuentaOrigen = bankService.getCuentaById(nroCuentaOrigen);
         Cuenta cuentaDestino = bankService.getCuentaById(nroCuentaDestino);
-        if(bankService.transferencia(cuentaOrigen, cuentaDestino, dinero)){
-            m.addAttribute("ok","Exito");
-        }else{
-            m.addAttribute("ok","Fail");
+        if (bankService.transferencia(cuentaOrigen, cuentaDestino, dinero)) {
+            m.addAttribute("ok", "Exito");
+        } else {
+            m.addAttribute("ok", "Fail");
         }
         return "home_transferencias";
+    }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public String test() {
+        return "newjsp";
     }
 
 }

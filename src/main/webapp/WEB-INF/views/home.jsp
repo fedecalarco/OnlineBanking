@@ -1,8 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-<%@ taglib uri="http://java.sun.com/jstl/fmt" prefix="fmt"%>
+<%@include file="/resources/maquetacion/taglibs.jsp" %>
 <!DOCTYPE html>
 
 <html>
