@@ -18,23 +18,24 @@ public class MovimientosServiceImpl implements MovimientosService {
     
 
     @Override
-    public Movimientos setMovimiento(String operacion) {
+    public Movimientos setMovimiento(String operacion, long id, double dinero) {
         
         Movimientos movs = new Movimientos();
         Date dia = new Date();
+        movs.setFecha(dia.toString());
         
         switch (operacion) {
             case "Registro":
                 movs.setAccion("Creacion de cuenta");
-                movs.setFecha(dia.toString());
                 break;
-            case "Deposito":
-                movs.setAccion("Deposito");
-                movs.setFecha(dia.toString());
+            case "Envio_Transferencia":
+                movs.setAccion("Trasferencia: Envio $" + dinero + " a cuenta Nº " + id);
+                break;
+            case "Recibio_Transferencia":
+                movs.setAccion("Trasferencia: Recibio $" + dinero + " "+"de cuenta Nº " + id);
                 break;
             default: 
                 movs.setAccion("OP desconocida");
-                movs.setFecha(dia.toString());
                 break;
         }
 

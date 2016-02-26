@@ -46,8 +46,8 @@ public class BankServiceImpl implements BankService {
             
             depositarSaldo(cuentaDestino, dinero);
             // Agrego los movimientos realizados a la la lista 
-            cuentaOrigen.agregarMovimiento(movimientosService.setMovimiento("Deposito"));
-            cuentaDestino.agregarMovimiento(movimientosService.setMovimiento("Dep"));  
+            cuentaOrigen.agregarMovimiento(movimientosService.setMovimiento("Envio_Transferencia", cuentaDestino.getId(), dinero));
+            cuentaDestino.agregarMovimiento(movimientosService.setMovimiento("Recibio_Transferencia", cuentaOrigen.getId(),dinero));  
             // Update cuentas 
             bankDao.update(cuentaOrigen);
             bankDao.update(cuentaDestino);

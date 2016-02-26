@@ -13,6 +13,6 @@ import com.banco.model.Movimientos;
  */
 public interface MovimientosService {
 
-    Movimientos setMovimiento(String operacion);
+    Movimientos setMovimiento(String operacion, long id, double dinero);
     
 }

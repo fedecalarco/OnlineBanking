@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
 
         Cuenta cuenta = new Cuenta();
         cuenta.setSaldo(0);
-        cuenta.agregarMovimiento(mov.setMovimiento("Registro"));
+        cuenta.agregarMovimiento(mov.setMovimiento("Registro",0,0));
         user.setCuenta(cuenta);
 
         user.setRole(User_Role.ROLE_USER);
