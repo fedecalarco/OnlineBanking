@@ -43,7 +43,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/HB/**").access("hasRole('USER')")
                // .antMatchers("/resources/**").permitAll()
                 .and().formLogin()
-                    .loginPage("/login").permitAll()
+                //    .loginPage("/login").permitAll()
                    // .usernameParameter("username").passwordParameter("password")
                     .defaultSuccessUrl("/HB/index")
                 .and().logout().permitAll()

@@ -1,15 +1,12 @@
 package com.banco.model;
 
-import java.util.HashSet;
-import java.util.Set;
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -27,23 +24,24 @@ public class User implements java.io.Serializable {
     private Cuenta cuenta;
 
     // Spring security
-    @Column(name = "STATE", nullable = false)
-    private String state = State.ACTIVE.getState();
-    
-    @ManyToMany(fetch = FetchType.EAGER)
-    private Set<UserProfile> userProfiles = new HashSet<UserProfile>();
+    @Enumerated(EnumType.STRING)
+    private User_Role role;
 
+    
     public User() {
     }
 
-    public User(long userId, String username, String password, String email, Persona persona, Cuenta cuenta) {
+    public User(long userId, String username, String password, String email, Persona persona, Cuenta cuenta, User_Role role) {
         this.userId = userId;
         this.username = username;
         this.password = password;
         this.email = email;
         this.persona = persona;
         this.cuenta = cuenta;
+        this.role = role;
     }
+
+
 
     public long getUserId() {
         return userId;
@@ -93,23 +91,12 @@ public class User implements java.io.Serializable {
         this.cuenta = cuenta;
     }
 
-    public String getState() {
-        return state;
+    public User_Role getRole() {
+        return role;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setRole(User_Role role) {
+        this.role = role;
     }
 
-    public Set<UserProfile> getUserProfiles() {
-        return userProfiles;
-    }
-
-    public void setUserProfiles(Set<UserProfile> userProfiles) {
-        this.userProfiles = userProfiles;
-    }
-    
-    
-
-    
 }

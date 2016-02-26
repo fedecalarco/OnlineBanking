@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.banco.daos.UserDAO;
 import com.banco.model.Cuenta;
+import com.banco.model.User_Role;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -34,10 +35,8 @@ public class UserServiceImpl implements UserService {
         cuenta.agregarMovimiento(mov.setMovimiento("Registro"));
         user.setCuenta(cuenta);
         
-      //  user.setUserProfiles(Set.USER);
-        
-    
-        
+        user.setRole(User_Role.ROLE_USER);
+
         userDao.create(user);
     }
 
