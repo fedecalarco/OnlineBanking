@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <style type="text/css">
-            <%@include file="css/styles.css" %>
+            <%@include file="/resources/css/styles.css" %>
         </style> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Online Banking ComunidadIT</title>
@@ -17,7 +17,7 @@
         <div class="container">
 
             <header>
-                <%@include file="maquetacion/header.jsp" %>
+                <%@include file="/resources/maquetacion/header.jsp" %>
             </header>
 
 
@@ -25,12 +25,12 @@
             <div class="container-fluid" > 
 
 
-                <div><%@include file="maquetacion/barraSuperior.jsp" %></div>
+                <div><%@include file="/resources/maquetacion/barraSuperior.jsp" %></div>
 
                 <div class="row">
 
                     <div>
-                        <%@include file="maquetacion/menuIzquierdo.jsp" %>
+                        <%@include file="/resources/maquetacion/menuIzquierdo.jsp" %>
 
                     </div>
 
@@ -40,7 +40,7 @@
                     <div class="col-md-8" id="tabla">
                         
                         <h2>Administracion de usuarios</h2>
-                        <a href="../User/crear.html">Agregar</a>
+                        <a href="<c:url value="/user/registrar"/>">Agregar</a>
                         <table class="table table-hover" border="0">
                             <tr>
                                 <th>ID</th>
@@ -60,8 +60,8 @@
 
 
                                     <td>
-                                        <a href="edit.html?id=${p.userId}">Edit</a>
-                                        <a href="remove.html?id=${p.userId}" onclick="return confirm('Estas seguro?')">Remove</a>
+                                        <a href="edit?id=${p.userId}">Edit</a>
+                                        <a href="remove?id=${p.userId}" onclick="return confirm('Estas seguro?')">Remove</a>
                                     </td>
 
 

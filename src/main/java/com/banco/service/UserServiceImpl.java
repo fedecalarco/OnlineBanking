@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.banco.daos.UserDAO;
 import com.banco.model.Cuenta;
 import com.banco.model.User_Role;
+import java.util.List;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService {
         cuenta.setSaldo(0);
         cuenta.agregarMovimiento(mov.setMovimiento("Registro"));
         user.setCuenta(cuenta);
-        
+
         user.setRole(User_Role.ROLE_USER);
 
         userDao.create(user);
@@ -44,6 +45,26 @@ public class UserServiceImpl implements UserService {
     public User getUserByUsername(String username) {
 
         return userDao.getUserByUsername(username);
+    }
+
+    @Override
+    public User getUserById(long id) {
+        return userDao.getUserById(id);
+    }
+
+    @Override
+    public List<User> getAll() {
+        return userDao.getAll();
+    }
+
+    @Override
+    public void update(User user) {
+        userDao.update(user);
+    }
+
+    @Override
+    public void delete(User user) {
+        userDao.delete(user);
     }
 
 }

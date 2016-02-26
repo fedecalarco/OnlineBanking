@@ -6,6 +6,7 @@
 package com.banco.service;
 
 import com.banco.model.User;
+import java.util.List;
 
 /**
  *
@@ -14,6 +15,9 @@ import com.banco.model.User;
 public interface UserService {
 
     void create(User user);
+    void delete(User user);
+    void update(User user);
     User getUserByUsername(String username);
-    
+    User getUserById(long id);
+    List<User> getAll();
 }

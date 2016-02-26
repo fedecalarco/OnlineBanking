@@ -6,6 +6,7 @@
 package com.banco.daos;
 
 import com.banco.model.User;
+import java.util.List;
 
 /**
  *
@@ -17,10 +18,12 @@ public interface UserDAO  {
 
     void delete(User user);
 
-    void remove(User user);
 
     void update(User user);
     
     User getUserByUsername(String username);
+    User getUserById(long id);
+    
+     List<User> getAll();
     
 }

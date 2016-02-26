@@ -32,18 +32,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     protected void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userDetailsService());
-
-//        auth.inMemoryAuthentication().withUser("fede").password("123123").roles("USER");
-//        auth.inMemoryAuthentication().withUser("admin").password("123123").roles("USER");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/HB/**").access("hasRole('USER')")
-               // .antMatchers("/resources/**").permitAll()
+                .antMatchers("/resources/**").permitAll()
                 .and().formLogin()
-                //    .loginPage("/login").permitAll()
+                    .loginPage("/login").permitAll()
                    // .usernameParameter("username").passwordParameter("password")
                     .defaultSuccessUrl("/HB/index")
                 .and().logout().permitAll()
