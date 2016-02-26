@@ -32,8 +32,12 @@ public class UserServiceImpl implements UserService {
         Cuenta cuenta = new Cuenta();
         cuenta.setSaldo(0);
         cuenta.agregarMovimiento(mov.setMovimiento("Registro"));
-
         user.setCuenta(cuenta);
+        
+      //  user.setUserProfiles(Set.USER);
+        
+    
+        
         userDao.create(user);
     }
 

@@ -50,4 +50,7 @@ public class UserDAOImpl implements UserDAO {
             return (User) getCurrentSession().createQuery("FROM com.banco.model.User WHERE username='" + username + "'").uniqueResult();
     }
 
+    
+    
+
 }
