@@ -2,6 +2,7 @@ package com.banco.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -48,6 +49,7 @@ public class Cuenta implements Serializable {
     }
 
     public List<Movimientos> getMovimietos() {
+        Collections.reverse(this.movimietos);
         return movimietos;
     }
 

@@ -42,14 +42,13 @@
                         <h1>Transferencias</h1>
                         <h3 style="color: green">${ok}</h3>
                         <f:form action="transferencias">
-
                             <input type="hidden" name="nroCuentaOrigen" id="a" value="${session_user.getCuenta().getId()}"/><br>
 
-                            <label for="userB">Nº cuenta a depositar: </label> <br>
-                            <input type="text" name="nroCuentaDestino" id="b" value=""/><br>
+                            <label for="userB">Nº cuenta destino: </label> <br>
+                            <input type="text" name="nroCuentaDestino" id="b" value="" class="input" required/><br>
 
                             <label for="dinero">Cantidad: </label> <br>
-                            <input type="text" name="dinero" id="dinero" value="0"/><br>
+                            <input type="text" name="dinero" id="dinero" value="0" class="input" required/><br>
 
 
                             <input type="submit" class="btn btn-success btn-sm" value="Trasnferir"/>

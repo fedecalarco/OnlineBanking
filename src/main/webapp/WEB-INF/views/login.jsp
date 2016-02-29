@@ -35,9 +35,9 @@
 
                         <f:form action="login" method="POST">
                             <label style="color: whitesmoke" for="usernameid">Usuario: </label> <br/>
-                            <input type="text" name="username" id="usernameid" value=""/><br/>
+                            <input type="text" name="username" id="usernameid" value="" class="input" required/><br/>
                             <label  style="color: whitesmoke" for="passwordid">Clave: </label><br/>
-                            <input type="password" name="password" id="passwordid" value="" />
+                            <input type="password" name="password" id="passwordid" value="" class="input" required/>
                             <br>
                             <br>
                             <input type="submit" id="Login" name="Login" class="btn btn-success btn-sm" value="Ingresar"/>

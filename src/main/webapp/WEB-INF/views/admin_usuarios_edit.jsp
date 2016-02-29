@@ -46,16 +46,16 @@
                             <input type="hidden" name="userId" value="${user.userId}"/>
 
                             <label for="usernameid">Username: </label>
-                            <input type="text" name="username" value="${user.username}" id="usernameid"/>
+                            <input type="text" name="username" value="${user.username}" id="usernameid" class="input"/><br/>
 
                             <label for="passwordid">Password: </label>
-                            <input type="password" name="password" id="passwordid" value="${user.password}"/>
+                            <input type="password" name="password" id="passwordid" value="${user.password}" class="input"/><br/>
 
                             <label for="emailid">Correo: </label>
-                            <input type="email" name="email" id="emailid" value="${user.email}"/>
+                            <input type="email" name="email" id="emailid" value="${user.email}" class="input"/><br/>
 
                             <label for="saldo">Saldo: </label>
-                            <input type="text" name="cuenta.saldo" value="${user.getCuenta().getSaldo()}" id="saldo"/>
+                            <input type="text" name="cuenta.saldo" value="${user.getCuenta().getSaldo()}" id="saldo" class="input"/><br/>
 
                             <br/>
 
