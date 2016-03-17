@@ -7,6 +7,7 @@ package com.banco.service;
 
 import com.banco.daos.BankDAO;
 import com.banco.model.Cuenta;
+import static com.banco.service.AddMovimientos.setMovimiento;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,9 +22,6 @@ public class BankServiceImpl implements BankService {
 
     @Autowired
     private BankDAO bankDao;
-    
-    private MovimientosService movimientosService = new MovimientosServiceImpl();
-    
 
     private boolean quitarSaldo(Cuenta cuenta, float saldo) {
         if (cuenta.getSaldo() >= saldo) {
@@ -46,8 +44,8 @@ public class BankServiceImpl implements BankService {
             
             depositarSaldo(cuentaDestino, dinero);
             // Agrego los movimientos realizados a la la lista 
-            cuentaOrigen.agregarMovimiento(movimientosService.setMovimiento("Envio_Transferencia", cuentaDestino.getId(), dinero));
-            cuentaDestino.agregarMovimiento(movimientosService.setMovimiento("Recibio_Transferencia", cuentaOrigen.getId(),dinero));  
+            cuentaOrigen.agregarMovimiento(setMovimiento("Envio_Transferencia", cuentaDestino.getId(), dinero));
+            cuentaDestino.agregarMovimiento(setMovimiento("Recibio_Transferencia", cuentaOrigen.getId(),dinero));  
             // Update cuentas 
             bankDao.update(cuentaOrigen);
             bankDao.update(cuentaDestino);

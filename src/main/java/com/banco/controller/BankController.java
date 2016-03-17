@@ -58,11 +58,17 @@ public class BankController {
     ) {
         Cuenta cuentaOrigen = bankService.getCuentaById(nroCuentaOrigen);
         Cuenta cuentaDestino = bankService.getCuentaById(nroCuentaDestino);
-        if (bankService.transferencia(cuentaOrigen, cuentaDestino, dinero)) {
-            m.addAttribute("ok", "Exito");
-        } else {
-            m.addAttribute("ok", "Fail");
+        if (cuentaDestino != null) {
+            if (bankService.transferencia(cuentaOrigen, cuentaDestino, dinero)) {
+                m.addAttribute("ok", "Exito");
+            } else {
+                m.addAttribute("ok", "Fail");
+            }
         }
+        else{
+            m.addAttribute("ok", "Cuenta destino no existe.");
+        }
+
         return "home_transferencias";
     }
 

@@ -12,18 +12,14 @@ import java.util.Date;
  *
  * @author fedec
  */
-public class MovimientosServiceImpl implements MovimientosService {
+public class AddMovimientos {
 
-    
-    
+     public static Movimientos setMovimiento(String operacion, long id, double dinero) {
 
-    @Override
-    public Movimientos setMovimiento(String operacion, long id, double dinero) {
-        
         Movimientos movs = new Movimientos();
         Date dia = new Date();
         movs.setFecha(dia.toString());
-        
+
         switch (operacion) {
             case "Registro":
                 movs.setAccion("Creacion de cuenta");
@@ -32,9 +28,9 @@ public class MovimientosServiceImpl implements MovimientosService {
                 movs.setAccion("Trasferencia: Envio $" + dinero + " a cuenta Nº " + id);
                 break;
             case "Recibio_Transferencia":
-                movs.setAccion("Trasferencia: Recibio $" + dinero + " "+"de cuenta Nº " + id);
+                movs.setAccion("Trasferencia: Recibio $" + dinero + " " + "de cuenta Nº " + id);
                 break;
-            default: 
+            default:
                 movs.setAccion("OP desconocida");
                 break;
         }
